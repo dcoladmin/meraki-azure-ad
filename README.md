@@ -1,14 +1,12 @@
-# This repo is no longer monitored / maintained.
+# Meraki Portal Auth with Azure Active Directory 
 
-# Meraki Captive Portal with Azure Active Directory 
-
-This Node.js app was created to facilitate the authorization of users registered on an Azure Active Directory with Meraki wireless infrastructures. Instead of using a RADIUS server for the authentication, you can spin up a web server that will be serving as your Captive Portal, which will then authenticate the user using OAuth
+This Node.js app was created to facilitate the authorization of users registered on an Azure Active Directory with Meraki wireless infrastructures. Instead of using a RADIUS server for the authentication, you can spin up a web server that will be serving as your Captive Portal, which will then authenticate the user using MSAL
 
 ## References
-This application and the step by step below were created / cloned based on the code provided by Microsoft, hosted [here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Additionally, the information available at Meraki's [documentation](https://create.meraki.io/build/captive-portal-with-client-side-javascript/) about building your own JavaScript captive portal. For the sake of simplicity, I removed any MongoDB action, but if you want to store user information somewhere, the original service provided by Azure gives you that flexibility.
+This application and the step by step below were created / cloned based on the code provided by Microsoft, hosted [here](https://github.com/Azure-Samples/ms-identity-node/tree/main). Additionally, the information available at Meraki's [documentation](https://create.meraki.io/build/captive-portal-with-client-side-javascript/) about building your own JavaScript captive portal.
 
 ## Quick Start
-In order to work with Meraki's captive portal, your server will need to run on a publicly available IP, i.e., you will need to host it out in the Internet. There are several alternatives to address this. For development purposes, I recommend using ngrok, which will create introspectable tunnels to your localhost. For production environments, I'd use Heroku, which is a PAAS that has a free tier of service. For the Heroku option, I'm including the required configuration file (ProcFile). 
+In order to work with Meraki's captive portal, your server will need to run on a publicly available IP, i.e., you will need to host it out in the Internet. There are several alternatives to address this. For development purposes, I recommend using ngrok, which will create introspectable tunnels to your localhost. For production environments, I'd use Heroku, which is a PAAS that has a free tier of service.
 
 * Getting Started on Heroku with Node.js - [Getting started guide](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
 * ngrok - [How it works](https://ngrok.com/product)
@@ -58,14 +56,12 @@ Next, clone the sample repo and install the NPM.
 
 From your shell or command line:
 
-* `$ clone this git https://github.com/rafael-carvalho/meraki-azure-ad`
+* `$ clone this git https://github.com/dcoladmin/meraki-azure-ad`
 * `$ npm install`
 
 ### Step 4: Configure your server
 
-* Provide the parameters in `exports.creds` in config.js as instructed.
-
-* Update `exports.destroySessionUrl` in config.js, if you want to use a different `post_logout_redirect_uri`.
+* Provide the parameters in .env.dev
 
 
 ### Step 5: Run the application
@@ -83,6 +79,5 @@ You will have a server successfully running on `http://localhost:3000`.
 When the user selects the configured wireless SSID, a splash page will be shown prompting for their Azure AD Credentials.
 
 ### Written by 
-Rafael Carvalho
-2018
-http://www.linkedin.com/in/rafaelloureirodecarvalho
+Brayton Stafford
+2023

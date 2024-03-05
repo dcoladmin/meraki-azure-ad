@@ -1,0 +1,15 @@
+<h1>Account Details</h1>
+<h3>ID Token</h3>
+<table>
+    <tbody>
+        {{#each idTokenClaims}}
+        <tr>
+            <td>{{@key}}</td>
+            <td>{{this}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>
+<br>
+<a href="/">Go back</a>

@@ -1,7 +1,17 @@
 /*
- * GET home page.
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ * Licensed under the MIT License.
  */
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
-};
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function (req, res, next) {
+    res.render('index', {
+        title: 'Meraki Wifi Authentication',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+
+module.exports = router;
