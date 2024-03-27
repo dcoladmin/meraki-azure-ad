@@ -1,27 +1,29 @@
 <h1>{{title}}</h1>
-{{#if isAuthenticated }}
-<p>Hi {{username}}!</p>
-<a href="/users/id">View ID token claims</a>
-<br>
-<a href="/auth/acquireToken">Acquire a token to call the Microsoft Graph API</a>
-<br>
-<a href="/auth/signout">Sign out</a>
+{{#if isAuthenticated}}
+  <p>Hi {{username}}!</p>
+  <a href="/users/id">View ID token claims</a>
+  <br />
+  <a href="/auth/acquireToken">Acquire a token to call the Microsoft Graph API</a>
+  <br />
+  <a href="/auth/signout">Sign out</a>
 {{else}}
-    <div class="container">  
-      
-      <form id="loginForm" action="http://localhost:3000/auth/signin">
-        <center><a href="https://www.dcol.net"><img src="./img/dcol-logo.png" width="50%"/></a></center>
-        <br>
-        <fieldset>
-          <button type="submit" >Log in to WiFi</button>
-        </fieldset>
-      </form>
-    </div>
-    <hr>
-    <h4>Debugging Stats</h4>
-    <p><label>Base Grant URL: </label><label id="baseGrantURL"></label></p>
-    <p><label>User Continue URL: </label><label id="userContinueURL"></label></p>
-    <p><label>Client IP: </label><label id="clientIP"></label></p>
-    <p><label>Client MAC: </label><label id="clientMAC"></label></p>
-    <p><label>Access Point MAC: </label><label id="nodeMAC"></label></p>
+  <div class="container">
+
+    <form id="loginForm" action="/auth/signin">
+      <center><a href="https://www.dcol.net"><img
+            src="https://www.dcol.net/wp-content/uploads/2018/07/DCOL2018LogoStackedCMYKol.png"
+            width="50%"
+          /></a></center>
+      <fieldset>
+        <button type="submit">Log in to WiFi</button>
+      </fieldset>
+    </form>
+  </div>
+  <hr />
+  <h4>Debugging Stats</h4>
+  <p><label>Base Grant URL: </label><label id="baseGrantURL"></label></p>
+  <p><label>User Continue URL: </label><label id="userContinueURL"></label></p>
+  <p><label>Client IP: </label><label id="clientIP"></label></p>
+  <p><label>Client MAC: </label><label id="clientMAC"></label></p>
+  <p><label>Access Point MAC: </label><label id="nodeMAC"></label></p>
 {{/if}}

@@ -8,7 +8,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
     res.render('index', {
-        title: 'Meraki Wifi Authentication',
+        title: '',
         isAuthenticated: req.session.isAuthenticated,
         username: req.session.account?.username,
     });
